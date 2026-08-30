@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "GraphQLApolloDemo",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./GraphQLApolloDemo",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "GraphQL_Apollo_Demo"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+type Query {
+  countries: [Country!]!
+}
+
+type Country {
+  code: ID!
+  name: String!
+  emoji: String!
+}
