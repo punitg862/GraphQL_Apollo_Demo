@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EEDCFC1130433E2A00C85C9A /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = EEDCFC1030433E2A00C85C9A /* Apollo */; };
+		EEDCFC1330433E3000C85C9A /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = EEDCFC1230433E3000C85C9A /* ApolloAPI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EE08E73B30430D2F00D7001B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDCFC1330433E3000C85C9A /* ApolloAPI in Frameworks */,
+				EEDCFC1130433E2A00C85C9A /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,7 @@
 				EE08E72D30430D2D00D7001B /* GraphQL_Apollo_Demo */,
 				EE08E73D30430D2F00D7001B /* GraphQL_Apollo_DemoTests */,
 				EE08E74730430D2F00D7001B /* GraphQL_Apollo_DemoUITests */,
+				EEDCFC0F30433E2A00C85C9A /* Frameworks */,
 				EE08E72C30430D2D00D7001B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +98,13 @@
 				EE08E74430430D2F00D7001B /* GraphQL_Apollo_DemoUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EEDCFC0F30433E2A00C85C9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +127,8 @@
 			);
 			name = GraphQL_Apollo_Demo;
 			packageProductDependencies = (
+				EEDCFC1030433E2A00C85C9A /* Apollo */,
+				EEDCFC1230433E3000C85C9A /* ApolloAPI */,
 			);
 			productName = GraphQL_Apollo_Demo;
 			productReference = EE08E72B30430D2D00D7001B /* GraphQL_Apollo_Demo.app */;
@@ -195,6 +212,9 @@
 			);
 			mainGroup = EE08E72230430D2D00D7001B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EEDCFB8B304311F000C85C9A /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE08E72C30430D2D00D7001B /* Products */;
 			projectDirPath = "";
@@ -403,8 +423,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -436,8 +456,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -580,6 +600,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEDCFB8B304311F000C85C9A /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEDCFC1030433E2A00C85C9A /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDCFB8B304311F000C85C9A /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		EEDCFC1230433E3000C85C9A /* ApolloAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEDCFB8B304311F000C85C9A /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE08E72330430D2D00D7001B /* Project object */;
 }
