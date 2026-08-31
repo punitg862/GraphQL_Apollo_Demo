@@ -28,9 +28,8 @@ import SwiftData
 //    let nextPageToken: String?
 //}
 
-struct Country: Identifiable, Hashable {
-    let id: String
-    let name: String
-    let emoji: String
-    let code: String
+public struct Country: Identifiable, Hashable {
+    public let id: String
+    public let name: String
+    public let emoji: String
 }

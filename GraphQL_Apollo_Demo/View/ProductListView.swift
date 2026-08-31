@@ -17,7 +17,7 @@ struct CountryListView: View {
                     Text(country.emoji)
                     Text(country.name).frame(maxWidth: .infinity, alignment: .leading)
 //                    Spacer()
-                    Text(country.code)
+                    Text(country.id)
                 }
             }
         }
@@ -32,8 +32,8 @@ struct CountryListView: View {
                 ProgressView()
             }
         }
-        .onDisappear {
-            viewModel.stopWatching()
-        }
+//        .onDisappear {
+//            viewModel.stopWatching()
+//        }
     }
 }

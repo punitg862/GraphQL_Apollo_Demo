@@ -9,7 +9,7 @@ import Apollo
 protocol GetCountriesUseCaseProtocol {
     func execute() async throws -> [Country]
 //    func execute(completion: @escaping ([Country]?, Error?) -> Void) async
-    func execute(completion: @escaping ([Country]?, Error?) -> Void) async -> GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>  // ✅ Return watcher
+//    func execute(completion: @escaping ([Country]?, Error?) -> Void) async -> GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>  // ✅ Return watcher
 
 }
 
@@ -28,8 +28,8 @@ struct GetCountriesUseCase: GetCountriesUseCaseProtocol {
 //        await repository.watchCountries(completion: completion)
 //    }
     
-    func execute(completion: @escaping ([Country]?, Error?) -> Void) async -> GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>  {
-        return await repository.watchCountries(completion: completion)
-    }
+//    func execute(completion: @escaping ([Country]?, Error?) -> Void) async -> GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>  {
+//        return await repository.watchCountries(completion: completion)
+//    }
 
 }
