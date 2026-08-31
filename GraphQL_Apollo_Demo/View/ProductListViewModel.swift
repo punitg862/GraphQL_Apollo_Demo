@@ -6,6 +6,7 @@
 //
 import Combine
 import Foundation
+import Apollo
 
 @MainActor
 final class CountryListViewModel: ObservableObject {
@@ -13,7 +14,8 @@ final class CountryListViewModel: ObservableObject {
     @Published private(set) var countries: [Country] = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
-
+    
+    private var watcher: GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>?
     private let getCountriesUseCase: GetCountriesUseCaseProtocol
 
     init(getCountriesUseCase: GetCountriesUseCaseProtocol) {
@@ -30,18 +32,29 @@ final class CountryListViewModel: ObservableObject {
             isLoading = false
         }
 
-        do {
+//        do {
             // The Countries API returns everything at once. No token needed.
-            let fetchedCountries = try await getCountriesUseCase.execute()
-            
-            // Replace the whole array
-            self.countries = fetchedCountries
-        } catch {
-            errorMessage = error.localizedDescription
-            print(errorMessage ?? "")
+//            let fetchedCountries = try await getCountriesUseCase.execute()
+//            self.countries = fetchedCountries
+//        } catch {
+//            errorMessage = error.localizedDescription
+//            print(errorMessage ?? "")
+//        }
+        
+        // Watcher
+        watcher = await getCountriesUseCase.execute { [weak self] fetchedCountries, error in
+            Task { @MainActor in
+                guard let fetchedCountries else { return }
+                self?.countries = fetchedCountries
+            }
         }
     }
 
+    func stopWatching() {
+        watcher?.cancel()  // ✅ Cancel watcher
+        watcher = nil
+    }
+    
     func refresh() async {
         await loadCountries()
     }

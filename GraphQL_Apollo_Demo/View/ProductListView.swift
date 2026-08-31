@@ -15,12 +15,13 @@ struct CountryListView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(country.emoji)
-                    Text(country.name)
-                        .font(.headline)
+                    Text(country.name).frame(maxWidth: .infinity, alignment: .leading)
+//                    Spacer()
+                    Text(country.code)
                 }
             }
         }
-        .task {
+        .task { // When call only once
             await viewModel.loadCountries()
         }
         .refreshable {
@@ -30,6 +31,9 @@ struct CountryListView: View {
             if viewModel.isLoading && viewModel.countries.isEmpty {
                 ProgressView()
             }
+        }
+        .onDisappear {
+            viewModel.stopWatching()
         }
     }
 }
