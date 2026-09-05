@@ -6,21 +6,21 @@
 //
 import Apollo
 
-protocol GetCountriesUseCaseProtocol {
+public protocol GetCountriesUseCaseProtocol {
     func execute() async throws -> [Country]
 //    func execute(completion: @escaping ([Country]?, Error?) -> Void) async
 //    func execute(completion: @escaping ([Country]?, Error?) -> Void) async -> GraphQLQueryWatcher<GraphQLApolloDemo.CountriesQuery>  // ✅ Return watcher
 
 }
 
-struct GetCountriesUseCase: GetCountriesUseCaseProtocol {
+public struct GetCountriesUseCase: GetCountriesUseCaseProtocol {
     private let repository: CountryRepository
 
-    init(repository: CountryRepository) {
+    public init(repository: CountryRepository) {
         self.repository = repository
     }
 
-    func execute() async throws -> [Country] {
+    public func execute() async throws -> [Country] {
         try await repository.getCountries()
     }
     

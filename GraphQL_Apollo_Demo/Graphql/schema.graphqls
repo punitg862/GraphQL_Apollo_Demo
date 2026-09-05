@@ -2,7 +2,7 @@ type Query {
   countries: [Country!]!
 }
 
-type Country {
+type Country @typePolicy(keyFields: "code") {
   code: ID!
   name: String!
   emoji: String!

@@ -7,6 +7,6 @@ extension GraphQLApolloDemo.Objects {
   nonisolated static let Country = ApolloAPI.Object(
     typename: "Country",
     implementedInterfaces: [],
-    keyFields: nil
+    keyFields: ["code"]
   )
 }

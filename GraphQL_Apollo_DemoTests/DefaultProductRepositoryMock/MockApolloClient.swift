@@ -6,7 +6,6 @@
 //
 
 import Apollo
-@testable import ApolloAPI
 import XCTest
 import Foundation
 
@@ -36,24 +35,18 @@ class MockApolloClient: ApolloClientProtocol {
         )
     }
     
-    func createMockCountriesData() -> GraphQLApolloDemo.CountriesQuery.Data {
-        let country = GraphQLApolloDemo.CountriesQuery.Data.Country(
-            _dataDict: ApolloAPI.DataDict(
-                data: [
+    func createMockCountriesData() async throws -> GraphQLApolloDemo.CountriesQuery.Data {
+        try await GraphQLApolloDemo.CountriesQuery.Data(
+            data: [
+                "countries": [
+                    [
                     "__typename": "Country",
-                    "code": GraphQLApolloDemo.ID("IN"),
+                    "code": "IN",
                     "name": "India",
                     "emoji": "🇮🇳"
-                ],
-                fulfilledFragments: [ObjectIdentifier(GraphQLApolloDemo.CountriesQuery.Data.Country.self)]
-            )
-        )
-
-        return GraphQLApolloDemo.CountriesQuery.Data(
-            _dataDict: ApolloAPI.DataDict(
-                data: ["countries": [country]],
-                fulfilledFragments: [ObjectIdentifier(GraphQLApolloDemo.CountriesQuery.Data.self)]
-            )
+                    ]
+                ]
+            ]
         )
     }
 }
